@@ -1,12 +1,14 @@
-import { Navbar } from "./components/layout/Navbar";
-import { Home } from "./components/pages/Home";
-import { Footer } from "./components/layout/Footer";
+import { Navbar } from "./components/layout/navbar/Navbar";
+import { Footer } from "./components/layout/footer/Footer";
+import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
+import { Counter } from "./components/common/counter/Counter";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Home />
+      <ItemListContainer />
+      <Counter />
       <Footer />
     </div>
   );
