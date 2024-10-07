@@ -1,13 +1,11 @@
 import { Navbar } from "./components/layout/navbar/Navbar";
-import { PruebaComponentes } from "./PruebaComponentes";
-import { PruebaGrid } from "./PruebaGrid";
+import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <PruebaGrid />
-      <PruebaComponentes />
+      <ItemListContainer greeting="¡Hola, bienvenido a nuestra tienda Gamer! Pronto estaremos preparados para brindarte la mejor experiencia." />
     </div>
   );
 }

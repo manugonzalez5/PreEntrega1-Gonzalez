@@ -1,6 +1,6 @@
-import { FaCartShopping } from "react-icons/fa6";
-
 import "./navbar.css";
+import { CartWidget } from "../../common/cartWidget/CartWidget";
+import { Buscador } from "../../common/buscador/Buscador";
 export const Navbar = () => {
   const stylesImage = {
     margin: "10px",
@@ -12,11 +12,25 @@ export const Navbar = () => {
     <>
       <div className="container-navbar">
         <img
-          src="https://res.cloudinary.com/dcy3epfdp/image/upload/v1727995122/png-transparent-backup-computacion-interactivity-computer-icons-computer-software-icon-interactive-text-computer-logo_scajs9.png"
+          src="https://res.cloudinary.com/dcy3epfdp/image/upload/v1728261052/png-transparent-backup-computacion-interactivity-computer-icons-computer-software-icon-interactive-text-computer-logo-removebg-preview_ehumzu.png"
           alt=""
           style={stylesImage}
         />
-        <FaCartShopping />
+        <ul style={{ display: "flex", listStyle: "none", gap: "10px" }}>
+          <li>PRODUCTOS</li>
+          <li>ARMA TU PC</li>
+          <li>AYUDA</li>
+          <li>CONTACTO</li>
+        </ul>
+        <div>
+          <Buscador />
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <h1>EPIC HARDWARE</h1>
+        </div>
+        <div>
+          <CartWidget />
+        </div>
       </div>
     </>
   );

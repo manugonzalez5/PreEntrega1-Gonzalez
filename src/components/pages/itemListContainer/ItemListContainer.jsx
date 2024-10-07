@@ -1,12 +1,13 @@
-import { Card } from "../../common/card/Card";
+export const ItemListContainer = ({ greeting }) => {
+  const containerStyle = {
+    padding: "20px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    textAlign: "center",
+    backgroundColor: "#f9f9f9",
+    fontSize: "20px",
+    color: "#333",
+  };
 
-export const ItemListContainer = () => {
-  return (
-    <div>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </div>
-  );
+  return <div style={containerStyle}>{greeting}</div>;
 };
