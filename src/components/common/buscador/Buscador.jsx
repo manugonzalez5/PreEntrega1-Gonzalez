@@ -9,7 +9,12 @@ export const Buscador = () => {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Buscador" variant="outlined" />
+      <TextField
+        id="outlined-basic"
+        label="Buscador"
+        variant="outlined"
+        placeholder="Buscar productos"
+      />
     </Box>
   );
 };

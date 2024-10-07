@@ -2,7 +2,6 @@ export const ItemListContainer = ({ greeting }) => {
   const containerStyle = {
     padding: "20px",
     border: "1px solid #ccc",
-    borderRadius: "5px",
     textAlign: "center",
     backgroundColor: "#f9f9f9",
     fontSize: "20px",
