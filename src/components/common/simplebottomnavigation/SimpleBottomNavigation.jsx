@@ -24,7 +24,7 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction label="INICIO" icon={<HomeIcon />} />
         <BottomNavigationAction label="PRODUCTOS" icon={<Inventory2Icon />} />
         <BottomNavigationAction label="ARMA TU PC" icon={<ComputerIcon />} />
-        <BottomNavigationAction label="AYUDA" icon={<HelpOutlineIcon />} />
+        <BottomNavigationAction label="NOSOTROS" icon={<HelpOutlineIcon />} />
         <BottomNavigationAction label="CONTACTO" icon={<ContactPageIcon />} />
       </BottomNavigation>
     </Box>
