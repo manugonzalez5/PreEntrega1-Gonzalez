@@ -12,7 +12,7 @@ export const products = [
     },
     {
         id: "2",
-        title: "HP",
+        title: "Notebook HP Pavilion",
         price: 1299,
         stock: 13,
         imageUrl: "",

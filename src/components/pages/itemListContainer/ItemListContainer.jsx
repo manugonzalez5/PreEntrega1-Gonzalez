@@ -1,12 +1,37 @@
-export const ItemListContainer = ({ greeting }) => {
-  const containerStyle = {
-    padding: "20px",
-    border: "1px solid #ccc",
-    textAlign: "center",
-    backgroundColor: "#f9f9f9",
-    fontSize: "20px",
-    color: "#333",
-  };
+import { useEffect, useState } from "react";
+import { products } from "../../products";
+import "./ItemListContainer.css";
+import { ItemList } from "../../common/itemlist/ItemList";
 
-  return <div style={containerStyle}>{greeting}</div>;
+let myProductsPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    if (products.lenght === 0) {
+      rej("No products found");
+    } else {
+      res(products);
+    }
+  }, 2000);
+});
+
+export const ItemListContainer = () => {
+  const [myProducts, setMyProducts] = useState([]);
+  useEffect(() => {
+    myProductsPromise
+      .then((data) => {
+        setMyProducts(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("Finally");
+      });
+  }, []);
+
+  console.log(myProducts);
+  return (
+    <div className="il-container">
+      <ItemList myProducts={myProducts} />
+    </div>
+  );
 };

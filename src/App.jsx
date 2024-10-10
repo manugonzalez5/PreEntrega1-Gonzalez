@@ -15,7 +15,7 @@ function App() {
         <CssBaseline />
       </ThemeProvider>
       <Navbar />
-      <ItemListContainer greeting="¡Hola, bienvenido a nuestra tienda Gamer! Pronto estaremos preparados para brindarte la mejor experiencia." />
+      <ItemListContainer />
     </div>
   );
 }
