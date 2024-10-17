@@ -1,7 +1,7 @@
 import { Navbar } from "./components/layout/navbar/Navbar";
-import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { ItemDetailContainer } from "./components/pages/itemDetail/ItemDetailContainer";
 
 function App() {
   const darkTheme = createTheme({
@@ -15,7 +15,7 @@ function App() {
         <CssBaseline />
       </ThemeProvider>
       <Navbar />
-      <ItemListContainer />
+      <ItemDetailContainer />
     </div>
   );
 }
