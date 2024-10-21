@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const usePaginate = (array) => {
     //array de 100
     //siempre se corte de 10 a 10
