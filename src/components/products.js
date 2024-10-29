@@ -3,7 +3,7 @@
 export const products = [
     {
         id: "1",
-        title: "Notebook Gamer Acer Nitro V15",
+        title: "Notebook Acer Nitro V15",
         price: 999,
         stock: 10,
         imageUrl: "https://res.cloudinary.com/dcy3epfdp/image/upload/v1729635987/nitro_v15_special_angle_2_znucyi.png",
@@ -21,7 +21,7 @@ export const products = [
     },
     {
         id: "3",
-        title: "Logitech G PRO X Superlight",
+        title: "Logitech GPRO X Superlight",
         price: 999,
         stock: 10,
         imageUrl: "https://res.cloudinary.com/dcy3epfdp/image/upload/v1729635986/pro-x-superlight-black-gallery-6_pamidk.png",
@@ -30,7 +30,7 @@ export const products = [
     },
     {
         id: "4",
-        title: "Logitech G PRO X 2 Wireless",
+        title: "Logitech GPRO X 2 Wireless",
         price: 1200,
         stock: 10,
         imageUrl: "https://res.cloudinary.com/dcy3epfdp/image/upload/v1729635986/981-001262_1_acccay.png",

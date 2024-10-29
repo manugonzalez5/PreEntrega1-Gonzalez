@@ -1,8 +1,11 @@
-import { Cards } from "../../common/card/Cards";
+import { Cardss } from "../../common/card/Cardss";
+import "./ItemList.css";
 export const ItemList = ({ items }) => {
   return (
     <>
-      <h2>Listado de productos</h2>
+      <div className="title">
+        <h2>Listado de productos</h2>
+      </div>
       <div
         style={{
           display: "flex",
@@ -12,7 +15,7 @@ export const ItemList = ({ items }) => {
         }}
       >
         {items.map(({ id, title, price, stock, imageUrl }) => (
-          <Cards
+          <Cardss
             key={id}
             title={title}
             price={price}

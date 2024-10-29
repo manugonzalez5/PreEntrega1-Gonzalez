@@ -14,20 +14,20 @@ export default function SimpleBottomNavigation() {
     <Box sx={{ width: 500 }}>
       <BottomNavigation
         sx={{ width: 500, backgroundColor: "#eee" }}
-        showlabels
+        showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       >
         <Link to="/">
-          <BottomNavigationAction label="INICIO" icon={<HomeIcon />} />
+          <BottomNavigationAction label="Inicio" icon={<HomeIcon />} />
         </Link>
         <Link to="/category/Laptop">
-          <BottomNavigationAction label="LAPTOP" icon={<ComputerIcon />} />
+          <BottomNavigationAction label="Laptop" icon={<ComputerIcon />} />
         </Link>
         <Link to="/category/Perifericos">
-          <BottomNavigationAction label="PERIFERICOS" icon={<MouseIcon />} />
+          <BottomNavigationAction label="Perifericos" icon={<MouseIcon />} />
         </Link>
       </BottomNavigation>
     </Box>
