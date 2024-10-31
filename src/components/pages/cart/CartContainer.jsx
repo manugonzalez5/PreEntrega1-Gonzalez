@@ -17,7 +17,7 @@ export const CartContainer = () => {
           </div>
         );
       })}
-      ;<button onClick={clearCart}>Limpiar carrito</button>
+      {cart.lenght > 0 && <button onClick={clearCart}>Limpiar carrito</button>};
       <Link to="/checkout">Finalizar compra</Link>
     </div>
   );

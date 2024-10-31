@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Checkout } from "./components/pages/checkout/Checkout";
 import { CartProvider } from "./context/CartContext";
+import { Toaster } from "sonner";
 
 const darkTheme = createTheme({
   palette: {
@@ -17,6 +18,12 @@ const darkTheme = createTheme({
 function App() {
   return (
     <BrowserRouter>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={true}
+        richColors
+        duration={3000}
+      />
       <CartProvider>
         <Navbar />
         <ThemeProvider theme={darkTheme}>

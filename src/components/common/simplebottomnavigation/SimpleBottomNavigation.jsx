@@ -20,15 +20,24 @@ export default function SimpleBottomNavigation() {
           setValue(newValue);
         }}
       >
-        <Link to="/">
-          <BottomNavigationAction label="Inicio" icon={<HomeIcon />} />
-        </Link>
-        <Link to="/category/Laptop">
-          <BottomNavigationAction label="Laptop" icon={<ComputerIcon />} />
-        </Link>
-        <Link to="/category/Perifericos">
-          <BottomNavigationAction label="Perifericos" icon={<MouseIcon />} />
-        </Link>
+        <BottomNavigationAction
+          component={Link}
+          to="/"
+          label="Inicio"
+          icon={<HomeIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/category/Laptop"
+          label="Laptop"
+          icon={<ComputerIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/category/Perifericos"
+          label="Perifericos"
+          icon={<MouseIcon />}
+        />
       </BottomNavigation>
     </Box>
   );

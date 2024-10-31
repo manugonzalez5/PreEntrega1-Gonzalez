@@ -21,7 +21,7 @@ export const CartWidget = () => {
   return (
     <Link to="/cart">
       <IconButton aria-label="cart">
-        <StyledBadge badgeContent={cart.length} color="primary">
+        <StyledBadge badgeContent={(cart && cart.length) || 0} color="primary">
           <ShoppingCartIcon fontSize="large" />
         </StyledBadge>
       </IconButton>

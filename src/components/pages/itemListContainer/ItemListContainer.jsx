@@ -5,9 +5,6 @@ import { useParams } from "react-router-dom";
 
 export const ItemListContainer = () => {
   const { name } = useParams(); // {}.name --> undefined
-  // undefined || "con algo"
-  // undefined ---> estoy en el home ---> mostrar todos los productos
-  // "algo" ---> estoy en una categoria ---> una fraccion
 
   const [items, setItems] = useState([]);
 
@@ -22,7 +19,22 @@ export const ItemListContainer = () => {
       setItems(res);
     });
   }, [name]);
-  return <ItemList items={items} />;
+
+  // if con return temprano
+  // if (items.length === 0) {
+  //   return (
+  //     <div>
+  //       <h1>Cargando...</h1>
+  //     </div>
+  //   );
+  // }
+  return (
+    <div>
+      <h2>Titulo de la app</h2>
+      {items.length === 0 ? <h1>Cargando...</h1> : <ItemList items={items} />}
+      <h4>Algo mas</h4>
+    </div>
+  );
 };
 
 export default ItemListContainer;

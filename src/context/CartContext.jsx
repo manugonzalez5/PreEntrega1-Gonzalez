@@ -8,7 +8,24 @@ export const CartProvider = ({ children }) => {
 
   //agregar al carrito
   const addToCart = (item) => {
-    setCart([...cart, item]);
+    // si esta, que no lo agregue
+    // si no esta, que lo agregue
+    // let isInCart = cart.filter ((product) => product.id === item.id) // []
+    // let isInCart = cart.find ((product) => product.id === item.id) // elemento || undefined
+    let isInCart = cart.some((product) => product.id === item.id); // booleano
+
+    if (isInCart) {
+      let nuevoArray = cart.map((product) => {
+        if (product.id === item.id) {
+          return { ...product, quantity: product.quantity + item.quantity };
+        } else {
+          return product;
+        }
+      });
+      setCart(nuevoArray);
+    } else {
+      setCart([...cart, item]);
+    }
   };
 
   //eliminar del carrito
@@ -16,18 +33,27 @@ export const CartProvider = ({ children }) => {
     setCart(cart.filter((item) => item.id !== itemId));
   };
 
-  //total a pagar del carrito
-  // const totalPayCart = cart.reduce(
-  //   (acc, item) => acc + item.quantity * item.price,
-
-  // );
-
   //limpiar carrito
   const clearCart = () => {
     setCart([]);
   };
 
-  let dataValue = { cart, addToCart, removeFromCart, clearCart };
+  const getTotalQuantity = () => {
+    return cart.reduce((acc, item) => acc + item.quantity, 0);
+  };
+
+  const getTotalAmount = () => {
+    return cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  };
+
+  let dataValue = {
+    cart,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    getTotalQuantity,
+    getTotalAmount,
+  };
   return (
     <CartContext.Provider value={{ dataValue }}>
       {children}
