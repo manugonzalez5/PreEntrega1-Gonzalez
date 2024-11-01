@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { products } from "../../products";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
+//import { Skeleton } from "@mui/material";
 
 export const ItemListContainer = () => {
   const { name } = useParams(); // {}.name --> undefined
@@ -20,19 +21,24 @@ export const ItemListContainer = () => {
     });
   }, [name]);
 
-  // if con return temprano
   // if (items.length === 0) {
-  //   return (
-  //     <div>
-  //       <h1>Cargando...</h1>
-  //     </div>
+  //   return items ? (
+  //     <img
+  //       style={{
+  //         width: 210,
+  //         height: 118,
+  //       }}
+  //       alt={items.title}
+  //       src={items.src}
+  //     />
+  //   ) : (
+  //     <Skeleton variant="rectangular" width={210} height={118} />
   //   );
   // }
+
   return (
     <div>
-      <h2>Titulo de la app</h2>
       {items.length === 0 ? <h1>Cargando...</h1> : <ItemList items={items} />}
-      <h4>Algo mas</h4>
     </div>
   );
 };

@@ -22,7 +22,7 @@ function App() {
         position="bottom-right"
         reverseOrder={true}
         richColors
-        duration={3000}
+        duration={2000}
       />
       <CartProvider>
         <Navbar />

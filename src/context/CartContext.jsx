@@ -8,10 +8,6 @@ export const CartProvider = ({ children }) => {
 
   //agregar al carrito
   const addToCart = (item) => {
-    // si esta, que no lo agregue
-    // si no esta, que lo agregue
-    // let isInCart = cart.filter ((product) => product.id === item.id) // []
-    // let isInCart = cart.find ((product) => product.id === item.id) // elemento || undefined
     let isInCart = cart.some((product) => product.id === item.id); // booleano
 
     if (isInCart) {
@@ -38,12 +34,21 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const getTotalQuantity = () => {
-    return cart.reduce((acc, item) => acc + item.quantity, 0);
+  const getTotalQuantity = (id) => {
+    const product = cart.find((elemento) => elemento.id === id);
+    // return product ? product.quantity : 0
+    if (product) {
+      return product.quantity;
+    } else {
+      return 0;
+    }
   };
 
   const getTotalAmount = () => {
-    return cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+    let total = cart.reduce((acc, item) => {
+      return acc + item.quantity * item.price;
+    }, 0);
+    return total;
   };
 
   let dataValue = {

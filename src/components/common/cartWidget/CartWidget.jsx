@@ -16,12 +16,13 @@ export const CartWidget = () => {
     },
   }));
 
-  const { cart } = useContext(CartContext); // siempre devuelve el objeto del value
+  const { dataValue } = useContext(CartContext);
+  const { cart } = dataValue; // siempre devuelve el objeto del value
 
   return (
     <Link to="/cart">
       <IconButton aria-label="cart">
-        <StyledBadge badgeContent={(cart && cart.length) || 0} color="primary">
+        <StyledBadge badgeContent={cart.length} color="primary">
           <ShoppingCartIcon fontSize="large" />
         </StyledBadge>
       </IconButton>
