@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { products } from "../../products";
 import { ItemList } from "./ItemList";
 import { useParams } from "react-router-dom";
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 //import { Skeleton } from "@mui/material";
 
 export const ItemListContainer = () => {
@@ -10,15 +11,22 @@ export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const unaFraccion = products.filter(
-      (producto) => producto.category === name
-    );
-    const getProducts = new Promise((resolve) => {
-      resolve(name ? unaFraccion : products);
-    });
-    getProducts.then((res) => {
-      setItems(res);
-    });
+    const productsCollection = collection(db, "products");
+
+    let docsRef = productsCollection;
+    if (name) {
+      docsRef = query(productsCollection, where("category", "==", name));
+    }
+    getDocs(docsRef)
+      .then((res) => {
+        let arrayEntendible = res.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        setItems(arrayEntendible);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [name]);
 
   // if (items.length === 0) {

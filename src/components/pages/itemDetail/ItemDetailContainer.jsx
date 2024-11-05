@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-import { products } from "../../products";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { toast } from "sonner";
+import { db } from "../../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -15,8 +16,11 @@ export const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    let productSelected = products.find((producto) => producto.id === id);
-    setItem(productSelected);
+    const productsCollection = collection(db, "products");
+    const docRef = doc(productsCollection, id);
+    getDoc(docRef).then((res) => {
+      setItem({ id: res.id, ...res.data() });
+    });
   }, [id]);
 
   const agregarAlCarrito = (cantidad) => {
