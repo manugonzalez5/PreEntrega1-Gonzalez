@@ -29,24 +29,17 @@ export const ItemListContainer = () => {
       });
   }, [name]);
 
-  // if (items.length === 0) {
-  //   return items ? (
-  //     <img
-  //       style={{
-  //         width: 210,
-  //         height: 118,
-  //       }}
-  //       alt={items.title}
-  //       src={items.src}
-  //     />
-  //   ) : (
-  //     <Skeleton variant="rectangular" width={210} height={118} />
-  //   );
-  // }
+  // const funcionParaAgregar = () => {
+  //   const productsCollection = collection(db, "products");
+  //   items.forEach((product) => {
+  //     addDoc(productsCollection, product);
+  //   });
+  // };
 
   return (
     <div>
       {items.length === 0 ? <h1>Cargando...</h1> : <ItemList items={items} />}
+      {/* <button onClick={funcionParaAgregar}>Agregar al backend</button> */}
     </div>
   );
 };
