@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ItemListContainer } from "./components/pages/itemListContainer/ItemListContainer";
-import { CartContainer } from "./components/pages/cart/CartContainer";
-import { Navbar } from "./components/layout/navbar/Navbar";
-import { ItemDetailContainer } from "./components/pages/itemDetail/ItemDetailContainer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Checkout } from "./components/pages/checkout/Checkout";
 import { CartProvider } from "./context/CartContext";
 import { Toaster } from "sonner";
+import { ProtectedRoutes } from "./routes/ProtectedRoutes";
+import { Layout } from "./components/layout/Layout";
+import { routes } from "./routes/routes";
 
 const darkTheme = createTheme({
   palette: {
@@ -25,16 +24,17 @@ function App() {
         duration={2000}
       />
       <CartProvider>
-        <Navbar />
         <ThemeProvider theme={darkTheme}>
           <Routes>
-            <Route path="/" element={<ItemListContainer />} />
-            <Route path="/category/:name" element={<ItemListContainer />} />
-            <Route path="/cart" element={<CartContainer />} />
-            <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
-            <Route path="/login" element={<h1>login</h1>} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="*" element={<h1>404 NOT FOUND!</h1>} />
+            <Route element={<Layout />}>
+              {routes.map(({ id, path, Element }) => (
+                <Route key={id} path={path} element={<Element />} />
+              ))}
+            </Route>
+
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/checkout" element={<Checkout />} />
+            </Route>
           </Routes>
           <CssBaseline />
         </ThemeProvider>
