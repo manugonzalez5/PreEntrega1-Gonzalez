@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
-import "./Cards.css";
+import "./cards.css";
 
 export const Cardss = ({ title, price, image, id }) => {
   return (
