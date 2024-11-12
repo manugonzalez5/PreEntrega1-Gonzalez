@@ -1,5 +1,5 @@
 import { Cardss } from "../../common/card/Cardss";
-import "./ItemList.css";
+import "./itemList.css";
 
 export const ItemList = ({ items }) => {
   return (
