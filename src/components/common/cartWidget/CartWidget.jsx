@@ -19,10 +19,14 @@ export const CartWidget = () => {
   const { dataValue } = useContext(CartContext);
   const { cart } = dataValue; // siempre devuelve el objeto del value
 
+  let total = cart.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
+
   return (
     <Link to="/cart">
       <IconButton aria-label="cart">
-        <StyledBadge badgeContent={cart.length} color="primary">
+        <StyledBadge badgeContent={total} color="primary">
           <ShoppingCartIcon fontSize="large" />
         </StyledBadge>
       </IconButton>

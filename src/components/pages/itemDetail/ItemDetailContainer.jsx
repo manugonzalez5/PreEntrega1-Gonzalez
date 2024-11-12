@@ -30,6 +30,7 @@ export const ItemDetailContainer = () => {
       position: "bottom-right",
     });
   };
+
   return (
     <ItemDetail
       item={item}

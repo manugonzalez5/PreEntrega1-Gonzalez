@@ -6,6 +6,10 @@ export const CartContainer = () => {
   const { cart, clearCart, removeFromCart, getTotalAmount } = dataValue;
 
   let totalEnElCarrito = getTotalAmount();
+
+  if (totalEnElCarrito === 0) {
+    return <h1>No hay productos en el carrito</h1>;
+  }
   return (
     <div>
       <h1>Aca el carrito</h1>
@@ -19,6 +23,7 @@ export const CartContainer = () => {
           </div>
         );
       })}
+
       {cart.lenght > 0 && <button onClick={clearCart}>Limpiar carrito</button>}
 
       <h2 style={{ color: cart.length > 0 ? "green" : "red" }}>

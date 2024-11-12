@@ -3,6 +3,7 @@ import ItemDetailContainer from "../components/pages/itemDetail/ItemDetailContai
 import { ItemListContainer } from "../components/pages/itemListContainer/ItemListContainer";
 import { Login } from "../components/pages/login/Login";
 import NotFound from "../components/pages/notFound/NotFound";
+import Checkout from "../components/pages/checkout/Checkout";
 
 export const routes = [
     {
@@ -32,6 +33,11 @@ export const routes = [
     },
     {
         id: 6,
+        path: "/checkout",
+        Element: Checkout,
+    },
+    {
+        id: 7,
         path: "*",
         Element: NotFound,
     },
