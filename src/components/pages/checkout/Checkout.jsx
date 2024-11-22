@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../firebaseConfig";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import "./checkout.css";
 
 export const Checkout = () => {
   const { dataValue } = useContext(CartContext);
@@ -43,7 +44,11 @@ export const Checkout = () => {
   };
 
   if (orderId) {
-    return <h2>gracias por tu compra tu ticket es : {orderId}</h2>;
+    return (
+      <div className="orderId">
+        <h2>Gracias por tu compra tu ticket es : {orderId}</h2>
+      </div>
+    );
   }
 
   // const deleteById = (id) => {
@@ -53,17 +58,17 @@ export const Checkout = () => {
   // };
 
   return (
-    <div>
+    <div className="checkoutForm">
       <form onSubmit={funcionDelFormulario}>
         <input
           type="text"
-          placeholder="jorge duje"
+          placeholder="Nombre Apellido"
           name="name"
           onChange={capturarInfo}
         />
         <input
           type="email"
-          placeholder="jorge@gmail.com"
+          placeholder="WYBxh@example.com"
           name="email"
           onChange={capturarInfo}
         />
@@ -73,8 +78,10 @@ export const Checkout = () => {
           name="phoneNumber"
           onChange={capturarInfo}
         />
-        <button>comprar</button>
-        <button type="button">Cancelar</button>
+        <button className="comprar">COMPRAR</button>
+        <button type="button" className="cancelar">
+          CANCELAR
+        </button>
       </form>
     </div>
   );

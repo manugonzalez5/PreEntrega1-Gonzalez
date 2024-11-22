@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "sonner";
+import "./counter.css";
 
 export const Counter = ({ stock, agregarAlCarrito, totalInCart }) => {
   const [contador, setContador] = useState(1);
@@ -7,7 +9,7 @@ export const Counter = ({ stock, agregarAlCarrito, totalInCart }) => {
     if (stock - totalInCart > contador) {
       setContador(contador + 1);
     } else {
-      alert("stock maximo");
+      toast.error("No hay stock suficiente");
     }
   };
   const restar = () => {
@@ -16,14 +18,19 @@ export const Counter = ({ stock, agregarAlCarrito, totalInCart }) => {
 
   return (
     <div
+      className="counter"
       style={{
         margin: "50px",
       }}
     >
-      <button onClick={sumar}>Sumar</button>
-      <h2>Contador = {contador}</h2>
-      <button onClick={restar}>Restar</button>
-      <button onClick={() => agregarAlCarrito(contador)}>
+      <button onClick={sumar} className="sumar">
+        +
+      </button>
+      <h2 className="contador">{contador}</h2>
+      <button onClick={restar} className="restar">
+        -
+      </button>
+      <button onClick={() => agregarAlCarrito(contador)} className="agregar">
         Agregar al carrito
       </button>
     </div>

@@ -1,0 +1,69 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.sumar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+
+.sumar :hover {
+    background-color: #0056b3;
+}
+
+.sumar :active {
+    background-color: #00439a;
+}
+
+.restar {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+
+.restar :hover {
+    background-color: #cc0000;
+}
+
+.restar :active {
+    background-color: #990000;
+}
+
+.agregar {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+
+.agregar :hover {
+    background-color: #1e7e34;
+}
+
+.agregar :active {
+    background-color: #155724;
+}
+
+.contador {
+    margin: 0 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
